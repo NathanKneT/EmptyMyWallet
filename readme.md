@@ -168,4 +168,4 @@ Distribué sous licence MIT. Voir `LICENSE` pour plus d'informations.
 
 ---
 
-**Développé par Nathan RIHET | [@nathanglhf](https://www.linkedin.com/in/nathan-rihet/) | N'investissez que ce que vous pouvez perdre !**
+**Développé par [Nathan RIHET](https://www.linkedin.com/in/nathan-rihet/) | N'investissez que ce que vous pouvez perdre !**
