@@ -124,15 +124,21 @@ empty-my-wallet-bot/
 ├── config/
 │   ├── __init__.py
 │   ├── config.py          # Gestion de la configuration
+├── log/
+│   └── dex_screener_bot.log # Log du backend
 │   └── logging_config.py  # Configuration des logs
 ├── db/
-│   ├── __init__.py
-│   └── database.py        # Interactions PostgreSQL
+│   └── db.py        # Interactions PostgreSQL
+├── empty_my_wallet/
+│   └── empty_my_wallet.py       # Ici que la magie opère
 ├── utils/
-│   ├── security.py        # Filtres et listes noires
-│   └── analytics.py       # Modèles d'IA
-└── logs/
-    └── bot.log            # Fichier de logs généré
+│   ├── security.py        # Filtres et listes noires (A FAIRE)
+│   └── analytics.py       # Modèles d'IA (A FAIRE)
+├── frontend/
+│   └── front.py        # Permet d'avoir des indicateurs de la DB
+├── .env.example            # Template à prendre pour les .env
+├── requirements.txt        # Fichier qui regroupe toutes les dépendances
+
 ```
 
 ## Workflow d'Analyse 🔄
@@ -162,4 +168,4 @@ Distribué sous licence MIT. Voir `LICENSE` pour plus d'informations.
 
 ---
 
-**Développé avec ❤️ par Nathan RIHET | [@nathanglhf](https://www.linkedin.com/in/nathan-rihet/) | Ne investissez que ce que vous pouvez perdre.**
+**Développé par Nathan RIHET | [@nathanglhf](https://www.linkedin.com/in/nathan-rihet/) | N'investissez que ce que vous pouvez perdre !**
