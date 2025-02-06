@@ -1,0 +1,11 @@
+FILTERS:
+  min_liquidity: 5000  # USD
+  min_age_days: 3
+  coin_blacklist:
+    - "0x123...def"  # Token contract addresses only
+    - "0x456...abc"
+  dev_blacklist:
+    - "0x789...fed"  # Developer wallet addresses
+  chain_whitelist:
+    - "ethereum"  # Use official chain names from DexScreener
+    - "bsc"
