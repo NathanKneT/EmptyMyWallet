@@ -1,5 +1,5 @@
 
-# EmptyMyWallet 💸
+# EmptyMyWallet 💸 (WIP)
 
 Les taux des livrets diminuent tandis que l'inflation continue d'augmenter. C'est dans une volonté d'investir en minimisant les risque que j'ai développé cet outil. **EmptyMyWallet est un bot de trading** intelligent qui analyse les données DeFi via DexScreener, détecte les opportunités grâce au machine learning, et exécute des trades sécurisés sur Binance. Il intègre une protection anti-arnaque avec RugCheck et une analyse en temps réel des liquidités.
 
