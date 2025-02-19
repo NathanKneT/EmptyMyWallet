@@ -197,7 +197,7 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ### Before Contributing
 
-1. Check the [Issues](https://github.com/NathanKneT/empty-my-wallet-bot/issues) page for current tasks
+1. Check the [Issues](https://github.com/NathanKneT/EmptyMyWallet/issues) page for current tasks
 2. Read our [Code of Conduct](CODE_OF_CONDUCT.md)
 3. Review the [Project Architecture](docs/ARCHITECTURE.md)
 4. Set up the [Development Environment](docs/DEVELOPMENT.md)
