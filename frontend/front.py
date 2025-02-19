@@ -7,13 +7,13 @@ import plotly.express as px
 import pandas as pd
 from sqlalchemy import create_engine, text
 from dash import dash_table
-
-# Database Connection Parameters
-DB_NAME = "bot"
-DB_USER = "avnadmin"
-DB_PASSWORD = "AVNS_lNZeFxak5N49NDPs5hh"
-DB_HOST = "pg-209c89ad-nathan-37e1.e.aivencloud.com"
-DB_PORT = "10497"
+import os
+# Récupération des informations via les variables d'environnement
+DB_NAME = os.getenv("POSTGRES_DB")
+DB_USER = os.getenv("POSTGRES_USER")
+DB_PASSWORD = os.getenv("POSTGRES_PASSWORD")
+DB_HOST = os.getenv("POSTGRES_HOST")
+DB_PORT = os.getenv("POSTGRES_PORT")
 
 # SQLAlchemy Engine for DataFrame loading
 DATABASE_URL = f'postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
