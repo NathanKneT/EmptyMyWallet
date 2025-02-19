@@ -1,171 +1,211 @@
+# EmptyMyWallet 💸
 
-# EmptyMyWallet 💸 (WIP)
+A machine learning-powered DeFi trading bot that analyzes DexScreener data, detects opportunities, and executes secure trades on Binance. It includes anti-scam protection with RugCheck and real-time liquidity analysis.
 
-Les taux des livrets diminuent tandis que l'inflation continue d'augmenter. C'est dans une volonté d'investir en minimisant les risque que j'ai développé cet outil. **EmptyMyWallet est un bot de trading** intelligent qui analyse les données DeFi via DexScreener, détecte les opportunités grâce au machine learning, et exécute des trades sécurisés sur Binance. Il intègre une protection anti-arnaque avec RugCheck et une analyse en temps réel des liquidités.
+⚠️ **Disclaimer**: This project is for educational purposes and does not constitute financial advice. Only invest what you can afford to lose. It is recommended to run it only in "Test" mode or on a dedicated Binance account.
 
-Disclaimer ⚠️ : Ce projet est à but éducatif et ne constitue pas un conseil financier. Investissez uniquement ce que vous pouvez vous permettre de perdre. Il est conseiller de ne le lancer uniquement en mode "Test" ou bien de le faire tourner sur un compte Binance dédié à cet usage.
+## 🚨 Project Status: Development
 
 ![Architecture du bot](frontend/crypto-bot.jpg)
 
-## Fonctionnalités Clés 🚀
+This project is currently under active development and **not production-ready**. We welcome contributors to help improve the following areas:
 
-- **🕵️ Analyse On-Chain Avancée**
-  - Récupération des données de pairs depuis DexScreener
-  - Détection du créateur du contrat via Etherscan/BscScan
-  - Vérification de la réputation sur RugCheck.xyz
-  - Détection de l'approvisionnement groupé (Bundled Supply)
+### Critical Issues to Resolve
 
-- **🤖 Intelligence Artificielle**
-  - Détection d'anomalies avec Isolation Forest
-  - Modèle entraîné sur 100 000 points de données historiques
-  - Analyse multivariée (prix, liquidité, volume)
+1. **API Integrations**
+   - RugCheck API integration not functional
+   - Honeypot API needs chain support revision
+   - Blockchain explorer API calls need robust error handling
 
-- **🔒 Sécurité Renforcée**
-  - Double liste noire (token + développeur)
-  - Filtres dynamiques anti-honeypot
-  - Mode test sans risque avec Binance Testnet
+2. **Machine Learning**
+   - Isolation Forest model needs optimization
+   - Feature engineering required
+   - Model persistence not implemented
+   - Performance metrics missing
 
-- **📊 Gestion des Données**
-  - Stockage PostgreSQL sécurisé (SSL/TLS)
-  - Mise à jour automatique des listes noires
-  - Historique des trades accessible via SQL
+3. **Trading Security**
+   - Slippage management missing
+   - No stop-loss/take-profit
+   - Price validation needed
+   - Rate limiting required
 
-## Prérequis 📋
+### Planned Features
+
+1. **High Priority**
+   - [ ] Unit tests and integration tests
+   - [ ] Trading security improvements
+   - [ ] API integration fixes
+   - [ ] ML model optimization
+
+2. **Medium Priority**
+   - [ ] User interface for monitoring
+   - [ ] Telegram/Discord notifications
+   - [ ] Docker containerization
+   - [ ] Performance monitoring
+
+3. **Low Priority**
+   - [ ] Multi-portfolio support
+   - [ ] Automated reporting
+   - [ ] Internationalization
+   - [ ] Performance optimizations
+
+## 🚀 Key Features (In Development)
+
+- **🕵️ Advanced On-Chain Analysis**
+  - DexScreener pair data retrieval
+  - Contract creator detection via Etherscan/BscScan
+  - RugCheck.xyz reputation verification
+  - Bundled Supply detection
+
+- **🤖 Artificial Intelligence**
+  - Anomaly detection with Isolation Forest
+  - Model trained on 100,000 historical data points
+  - Multivariate analysis (price, liquidity, volume)
+
+- **🔒 Enhanced Security**
+  - Double blacklist (token + developer)
+  - Dynamic honeypot filters
+  - Risk-free test mode with Binance Testnet
+
+## 📋 Prerequisites
 
 - Python 3.10+
-- Compte Binance [Obtenir](https://www.binance.com/)
-- Clés API :
-  - Binance (Production et TestNet)
-  - Etherscan ([Obtenir](https://etherscan.io/apis))
-  - BscScan ([Obtenir](https://bscscan.com/apis))
-  - Polygon ([Obtenir](https://polygonscan.com/apis))
+- Binance Account [Get Here](https://www.binance.com/)
+- API Keys:
+  - Binance (Production and TestNet)
+  - Etherscan ([Get Here](https://etherscan.io/apis))
+  - BscScan ([Get Here](https://bscscan.com/apis))
+  - Polygon ([Get Here](https://polygonscan.com/apis))
 
-## Installation 🛠️
+## 🛠️ Installation
 
-1. **Cloner le dépôt**
+1. **Clone the repository**
 ```bash
 git clone https://github.com/yourusername/empty-my-wallet-bot.git
 cd empty-my-wallet-bot
 ```
 
-2. **Configurer l'environnement**
+2. **Set up environment**
 ```bash
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate     # Windows
 ```
 
-3. **Installer les dépendances**
+3. **Install dependencies**
 ```bash
 pip install -r requirements.txt
 ```
 
-4. **Configurer les variables d'environnement (.env)**
+4. **Configure environment variables (.env)**
 ```ini
 # Binance
-BINANCE_API_KEY="votre_cle_production"
-BINANCE_API_SECRET="votre_secret_production"
+BINANCE_API_KEY="your_production_key"
+BINANCE_API_SECRET="your_production_secret"
 
 # Database
-POSTGRES_HOST="votre-host.com"
+POSTGRES_HOST="your-host.com"
 POSTGRES_PORT=12345
 POSTGRES_DB="defaultdb"
 POSTGRES_USER="admin"
-POSTGRES_PASSWORD="votre-mot-de-passe"
+POSTGRES_PASSWORD="your-password"
 
 # Explorers
-ETHERSCAN_API="votre_cle_etherscan"
-BSCSCAN_API="votre_cle_bscscan"
-POLYGON_API="votre_cle_polygon"
+ETHERSCAN_API="your_etherscan_key"
+BSCSCAN_API="your_bscscan_key"
+POLYGON_API="your_polygon_key"
 
-TEST_MODE="true"  # Mode test (Pour éviter les trades mais tracking réel)
+TEST_MODE="true"  # Test mode (For tracking without real trades)
 ```
 
-## Configuration ⚙️
+### **Configuration ⚙️**
 
-`config/config.yaml`
+#### **`config/config.yaml`**
 ```yaml
 FILTERS:
-  min_liquidity: 10000    # Liquidité minimum en USD
-  max_age_days: 7         # Âge maximum des pairs
-  chain_whitelist:        # Blockchains surveillées
+  min_liquidity: 10000    # Minimum liquidity in USD
+  max_age_days: 7         # Maximum pair age
+  chain_whitelist:        # Monitored blockchains
     - "ethereum"
     - "bsc"
     - "polygon"
 
 RISK_MANAGEMENT:
-  max_trade_size: 100     # USD par trade
-  daily_loss_limit: 500   # USD de perte max/jour
-  slippage_tolerance: 1.5 # % de slippage accepté
+  max_trade_size: 100     # USD per trade
+  daily_loss_limit: 500   # Maximum daily loss in USD
+  slippage_tolerance: 1.5 # Accepted slippage percentage
 
 ANALYSIS:
-  model_refresh: 3600     # Intervalle de réentraînement (secondes)
-  anomaly_threshold: -0.7 # Seuil de détection d'anomalie
+  model_refresh: 3600     # Retraining interval (seconds)
+  anomaly_threshold: -0.7 # Anomaly detection threshold
 ```
 
-## Utilisation 🚦
+### **Usage 🚦**
 
-**Lancer en mode production**
+#### **Run in Production Mode**
 ```bash
 python main.py
 ```
 
-**Commandes optionnelles**
+#### **Optional Commands**
 ```bash
---interval 300       # Analyse toutes les 5 minutes
---liquidity 5000     # Modifie la liquidité minimum
---chains eth,bsc     # Filtre les blockchains
+--interval 300       # Runs analysis every 5 minutes
+--liquidity 5000     # Adjusts minimum liquidity
+--chains eth,bsc     # Filters blockchains
 ```
 
-## Structure du Projet 📂
+### **Project Structure 📂**
 ```
 empty-my-wallet-bot/
-├── main.py                 # Point d'entrée principal
+├── main.py                 # Main entry point
 ├── config/
 │   ├── __init__.py
-│   ├── config.py          # Gestion de la configuration
+│   ├── config.py           # Configuration management
 ├── log/
-│   └── dex_screener_bot.log # Log du backend
-│   └── logging_config.py  # Configuration des logs
+│   └── dex_screener_bot.log # Backend log
+│   └── logging_config.py   # Logging configuration
 ├── db/
-│   └── db.py        # Interactions PostgreSQL
+│   └── db.py               # PostgreSQL interactions
 ├── empty_my_wallet/
-│   └── empty_my_wallet.py       # Ici que la magie opère
+│   └── empty_my_wallet.py  # Where the magic happens
 ├── utils/
-│   ├── security.py        # Filtres et listes noires (A FAIRE)
-│   └── analytics.py       # Modèles d'IA (A FAIRE)
+│   ├── security.py         # Filters and blacklists (TODO)
+│   └── analytics.py        # AI models (TODO)
 ├── frontend/
-│   └── front.py        # Permet d'avoir des indicateurs de la DB
-├── .env.example            # Template à prendre pour les .env
-├── requirements.txt        # Fichier qui regroupe toutes les dépendances
-
+│   └── front.py            # Displays DB indicators
+├── .env.example            # Template for .env files
+├── requirements.txt        # Lists all dependencies
 ```
 
-## Workflow d'Analyse 🔄
-1. Récupération des pairs depuis DexScreener
-2. Validation des adresses et nettoyage des données
-3. Vérification des listes noires (on-chain et locale)
-4. Détection d'anomalies avec Isolation Forest
-5. Exécution des trades sur Binance (si conditions remplies)
-6. Mise à jour de la base de données et des listes noires
+### **Analysis Workflow 🔄**
+1. Retrieve pairs from DexScreener  
+2. Validate addresses and clean data  
+3. Check blacklists (on-chain & local)  
+4. Detect anomalies using Isolation Forest  
+5. Execute trades on Binance (if conditions met)  
+6. Update database and blacklists  
 
-## Sécurité 🔐
-- Toutes les communications chiffrées (HTTPS/SSL)
-- Gestion sécurisée des clés API (dotenv)
-- Audit automatique des contrats intelligents
-- Isolation complète des environnements test/prod
+## 🤝 Contributing
 
-## Contribution 🤝
-Les contributions sont les bienvenues ! Veuillez :
-1. Forker le projet
-2. Créer une branche (`git checkout -b feature/newfeat`)
-3. Commiter vos changements (`git commit -m 'Add some newfeat'`)
-4. Pousser vers la branche (`git push origin feature/newfeat`)
-5. Ouvrir une Pull Request
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details. Here's how to get started:
 
-## Licence 📄
-Distribué sous licence MIT. Voir `LICENSE` pour plus d'informations.
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+### Before Contributing
+
+1. Check the [Issues](https://github.com/yourusername/empty-my-wallet-bot/issues) page for current tasks
+2. Read our [Code of Conduct](CODE_OF_CONDUCT.md)
+3. Review the [Project Architecture](docs/ARCHITECTURE.md)
+4. Set up the [Development Environment](docs/DEVELOPMENT.md)
+
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
-**Développé par [Nathan RIHET](https://www.linkedin.com/in/nathan-rihet/) | N'investissez que ce que vous pouvez perdre !**
+**Developed by [Nathan RIHET](https://www.linkedin.com/in/nathan-rihet/) | Only invest what you can afford to lose!**
